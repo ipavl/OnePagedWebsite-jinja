@@ -3,6 +3,8 @@ One-Paged Website
 
 A single-page website using [Flask](http://flask.pocoo.org), SQLite, and Jinja2.
 
+For an AngularJS version, see [OnePagedWebsite-angular](https://github.com/ipavl/OnePagedWebsite-angular).
+
 Set up
 ------
 
