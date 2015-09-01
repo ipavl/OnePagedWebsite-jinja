@@ -60,6 +60,10 @@
                                 <h3 class="title">{{ project.title }}</h3><span class="date">{{ project.date | projectdate}}</span>
                             </div>
 
+                            <div class="tags">
+                                {% for tag in project.tags | splitcomma %}<span class="tag">{{ tag }}</span>{% endfor %}
+                            </div>
+
                             <p class="description">{{ project.description }}</p>
                         </div>
                     </div>

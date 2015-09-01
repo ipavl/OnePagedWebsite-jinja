@@ -18,6 +18,7 @@ class Project(db.Model):
     id = Column(Integer, primary_key=True)
     title = Column(Text, unique=False)
     date = Column(Text, unique=False)
+    tags = Column(Text, unique=True)
     description = Column(Text, unique=False)
 
 db.create_all()
@@ -26,6 +27,7 @@ db.create_all()
 @app.route('/')
 def index():
     projects = Project.query.all()
+    print(projects)
     return render_template('index.html',
                            site_title=site_title,
                            site_tagline=site_tagline,
@@ -38,6 +40,14 @@ def filter_project_date(s):
     Converts a string to the format "Month Year" (e.g. January 2015).
     """
     return datetime.strptime(s, '%Y-%m-%d').strftime('%B %Y')
+
+
+@app.template_filter('splitcomma')
+def split_by_comma(s):
+    """
+    Splits a comma-delimited string.
+    """
+    return s.strip().split(",")
 
 if __name__ == '__main__':
     app.run()
