@@ -1,10 +1,15 @@
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.templating import render_template
 from sqlalchemy import Column, Integer, Text, Date
 
 app = Flask(__name__)
+app.debug = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sqlite.db'
 db = SQLAlchemy(app)
+
+# Site configuration
+site_title = 'Your Name'
 
 
 class Project(db.Model):
@@ -17,8 +22,8 @@ db.create_all()
 
 
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def index():
+    return render_template('index.html', site_title=site_title)
 
 
 if __name__ == '__main__':
