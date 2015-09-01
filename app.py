@@ -27,7 +27,7 @@ db.create_all()
 
 @app.route('/')
 def index():
-    projects = Project.query.all()
+    projects = Project.query.order_by(Project.date.desc()).all()
     print(projects)
     return render_template('index.html',
                            site_title=site_title,
