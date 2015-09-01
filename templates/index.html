@@ -60,9 +60,11 @@
                                 <h3 class="title">{{ project.title }}</h3><span class="date">{{ project.date | projectdate}}</span>
                             </div>
 
-                            <div class="tags">
-                                {% for tag in project.tags | splitcomma %}<span class="tag">{{ tag }}</span>{% endfor %}
-                            </div>
+                            {% if project.tags | length > 0 %}
+                                <div class="tags">
+                                    {% for tag in project.tags | splitcomma %}<span class="tag">{{ tag }}</span>{% endfor %}
+                                </div>
+                            {% endif %}
 
                             <p class="description">{{ project.description | md2html | safe }}</p>
                         </div>
