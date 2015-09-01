@@ -2,6 +2,7 @@ from datetime import datetime
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.templating import render_template
+from markdown import markdown
 from sqlalchemy import Column, Integer, Text
 
 app = Flask(__name__, static_url_path='')
@@ -32,6 +33,14 @@ def index():
                            site_title=site_title,
                            site_tagline=site_tagline,
                            projects=projects)
+
+
+@app.template_filter('md2html')
+def markdown_to_html(s):
+    """
+    Renders a Markdown-formatted string as HTML.
+    """
+    return markdown(s)
 
 
 @app.template_filter('projectdate')

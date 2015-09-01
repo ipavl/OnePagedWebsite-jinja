@@ -64,7 +64,7 @@
                                 {% for tag in project.tags | splitcomma %}<span class="tag">{{ tag }}</span>{% endfor %}
                             </div>
 
-                            <p class="description">{{ project.description }}</p>
+                            <p class="description">{{ project.description | md2html | safe }}</p>
                         </div>
                     </div>
                 </div>
