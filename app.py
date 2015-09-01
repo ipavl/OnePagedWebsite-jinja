@@ -4,7 +4,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from flask.templating import render_template
 from sqlalchemy import Column, Integer, Text
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 app.debug = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sqlite.db'
 db = SQLAlchemy(app)

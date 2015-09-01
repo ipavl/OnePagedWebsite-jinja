@@ -3,12 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ site_title }}</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
 </head>
+
 <body>
-{% for project in projects %}
-    {{ project.title }}
-    {{ project.date | projectdate }}
-    {{ project.description }}
-{% endfor %}
+
+<header>
+    <div class="infobox">
+        <div class="content">
+            <h1>Your Name</h1>
+
+            <div class="subtitle">Your Title or Tagline Here</div>
+
+            <ul class="list-unstyled links">
+                <li><a href="#">GitHub</a></li><!--
+                --><li><a href="#">Stack Overflow</a></li><!--
+                --><li><a href="#">LinkedIn</a></li><!--
+                --><li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <section class="row">
+        <div class="col-md-3">
+            <h2>About Me</h2>
+        </div>
+
+        <div class="col-md-9">
+            <div class="about">
+                <p>Lorem ipsum dolor sit amet, te sit unum convenire elaboraret, ei meis ullum inani qui. Atqui
+                    molestiae scripserit mei et. Ad vis scaevola ponderum temporibus, vidisse iracundia et pri, duo
+                    veniam appetere patrioque id. Eum ea vidisse admodum. Agam ponderum detraxit ex usu, ut malis timeam
+                    latine vel.</p>
+
+                <p>Vix ei nihil discere, intellegat mediocritatem eum et, adhuc intellegam at vis. Sint vivendum
+                    deseruisse ex sed, mea viris splendide ne, no invidunt sapientem dissentias vim. Ad mei verterem
+                    torquatos vituperata. Sea enim maluisset reprehendunt id.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="row">
+        <div class="col-md-3">
+            <h2>Projects</h2>
+        </div>
+
+        <div class="col-md-9">
+            {% for project in projects %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="project">
+                            <div class="meta">
+                                <h3 class="title">{{ project.title }}</h3><span class="date">{{ project.date | projectdate}}</span>
+                            </div>
+
+                            <p class="description">{{ project.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+<footer>Copyright &copy; 2015 Your Name.
+    Powered by <a href="https://github.com/ipavl/OnePagedWebsite">One-Paged Website</a>.
+</footer>
+
 </body>
 </html>

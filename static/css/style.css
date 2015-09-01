@@ -1,0 +1,94 @@
+header {
+    width: 100%;
+    height: 200px;
+    display: table;
+    background-color: #3498db;
+}
+
+footer {
+    padding: 1em 0;
+    text-align: center;
+}
+
+.infobox {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.infobox .content {
+    text-align: center;
+    color: white;
+}
+
+@media screen and (min-width: 480px) {
+    .infobox .content {
+        border: 2px solid white;
+        border-radius: 3px;
+        margin: auto;
+        width: 370px;
+        padding: 1.15em 1.15em 0.4em;
+    }
+}
+
+.infobox h1 {
+    margin: 0;
+}
+
+.infobox .subtitle {
+    font-size: 1.4em;
+    font-variant: small-caps;
+    margin-bottom: 0.5em;
+}
+
+.infobox .links li {
+    display: inline;
+}
+
+.infobox .links li a {
+    display: inline-block;
+    margin: 0 8px;
+    color: white;
+}
+
+.infobox .links li + li:before {
+    content: '|';
+}
+
+@media screen and (min-width: 992px) {
+    section .col-md-9 {
+        border-left: 1px solid #bbb;
+    }
+
+    section h2,
+    section h3 {
+        margin: 0;
+    }
+}
+
+section:first-of-type {
+    margin-top: 3em;
+}
+
+section:not(:last-of-type) {
+    margin-bottom: 3em;
+}
+
+p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* TODO: Apply only through n-1 */
+.project {
+    margin-bottom: 1em;
+}
+
+.project .meta .title,
+.project .meta .date {
+    display: inline;
+}
+
+.project .meta span {
+    margin-left: 10px;
+    font-size: 13pt;
+    color: #828282;
+}
