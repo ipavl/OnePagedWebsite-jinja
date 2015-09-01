@@ -9,7 +9,7 @@ Set up
 ------
 
 1. Run `app.py` to create the database
-2. Edit the created `sqlite.db` file to add projects (note: `date` should be in the format `YYYY-MM-DD`, e.g. 2015-08-31)
+2. Edit the created `sqlite.db` file to add projects (note: `date` should be in the format `YYYY-MM-DD`, e.g. 2015-08-31, and `tags` should be a comma-separated list of strings)
 3. Change the links and "About Me" instances in `templates/index.html` as appropriate
 4. Change `site_title` and `site_tagline` in `app.py`
 
