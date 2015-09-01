@@ -1,7 +1,8 @@
+from datetime import datetime
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.templating import render_template
-from sqlalchemy import Column, Integer, Text, Date
+from sqlalchemy import Column, Integer, Text
 
 app = Flask(__name__)
 app.debug = True
@@ -15,7 +16,7 @@ site_title = 'Your Name'
 class Project(db.Model):
     id = Column(Integer, primary_key=True)
     title = Column(Text, unique=False)
-    date = Column(Date, unique=False)
+    date = Column(Text, unique=False)
     description = Column(Text, unique=False)
 
 db.create_all()
@@ -23,8 +24,16 @@ db.create_all()
 
 @app.route('/')
 def index():
-    return render_template('index.html', site_title=site_title)
+    projects = Project.query.all()
+    return render_template('index.html', site_title=site_title, projects=projects)
 
+
+@app.template_filter('projectdate')
+def filter_project_date(s):
+    """
+    Converts a string to the format "Month Year" (e.g. January 2015).
+    """
+    return datetime.strptime(s, '%Y-%m-%d').strftime('%B %Y')
 
 if __name__ == '__main__':
     app.run()

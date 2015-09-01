@@ -5,6 +5,10 @@
     <title>{{ site_title }}</title>
 </head>
 <body>
-
+{% for project in projects %}
+    {{ project.title }}
+    {{ project.date | projectdate }}
+    {{ project.description }}
+{% endfor %}
 </body>
 </html>
