@@ -11,6 +11,7 @@ db = SQLAlchemy(app)
 
 # Site configuration
 site_title = 'Your Name'
+site_tagline = 'Your Title or Tagline'
 
 
 class Project(db.Model):
@@ -25,7 +26,10 @@ db.create_all()
 @app.route('/')
 def index():
     projects = Project.query.all()
-    return render_template('index.html', site_title=site_title, projects=projects)
+    return render_template('index.html',
+                           site_title=site_title,
+                           site_tagline=site_tagline,
+                           projects=projects)
 
 
 @app.template_filter('projectdate')
