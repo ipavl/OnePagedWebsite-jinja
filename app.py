@@ -18,8 +18,9 @@ site_tagline = 'Your Title or Tagline'
 class Project(db.Model):
     id = Column(Integer, primary_key=True)
     title = Column(Text, unique=False)
+    link = Column(Text, unique=True)
     date = Column(Text, unique=False)
-    tags = Column(Text, unique=True)
+    tags = Column(Text, unique=False)
     description = Column(Text, unique=False)
 
 db.create_all()

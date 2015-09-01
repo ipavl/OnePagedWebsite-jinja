@@ -57,7 +57,7 @@
                     <div class="col-md-12">
                         <div class="project">
                             <div class="meta">
-                                <h3 class="title">{{ project.title }}</h3><span class="date">{{ project.date | projectdate}}</span>
+                                <h3 class="title">{% if project.link %}<a href="{{ project.link }}">{% endif %}{{ project.title }}{% if project.link %}</a>{% endif %}</h3><span class="date">{{ project.date | projectdate}}</span>
                             </div>
 
                             {% if project.tags | length > 0 %}
