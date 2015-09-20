@@ -61,9 +61,9 @@
                             </div>
 
                             {% if project.tags | length > 0 %}
-                                <div class="tags">
-                                    {% for tag in project.tags | splitcomma %}<span class="tag">{{ tag }}</span>{% endfor %}
-                                </div>
+                                <ul class="list-unstyled tags">
+                                    {% for tag in project.tags | splitcomma %}<li class="tag">{{ tag }}</li>{% endfor %}
+                                </ul>
                             {% endif %}
 
                             <p class="description">{{ project.description | md2html | safe }}</p>
