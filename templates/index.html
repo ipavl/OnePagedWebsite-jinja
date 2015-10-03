@@ -53,9 +53,9 @@
 
         <div class="col-md-9">
             {% for project in projects %}
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="project">
+                <div class="project">
+                    <div class="row">
+                        <div class="col-md-12">
                             <div class="meta">
                                 <h3 class="title">{% if project.link %}<a href="{{ project.link }}">{% endif %}{{ project.title }}{% if project.link %}</a>{% endif %}</h3><span class="date">{{ project.date | projectdate}}</span>
                             </div>
@@ -66,7 +66,7 @@
                                 </ul>
                             {% endif %}
 
-                            <p class="description">{{ project.description | md2html | safe }}</p>
+                            <div class="description">{{ project.description | md2html | safe }}</div>
                         </div>
                     </div>
                 </div>
